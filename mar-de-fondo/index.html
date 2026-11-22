@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mar de Fondo · Tablas de surf hechas a mano</title>
+  <meta name="description" content="Mar de Fondo dibuja y lamina tablas de surf a mano en el Cantábrico, para las olas que llegan de lejos. Encarga la tuya." />
+  <meta name="theme-color" content="#070d14" />
+  <meta property="og:title" content="Mar de Fondo · Tablas de surf hechas a mano" />
+  <meta property="og:description" content="Para las olas que llegan de lejos." />
+  <meta property="og:image" content="img/og.webp" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23070d14%22/%3E%3Cpath d=%22M4 19c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 6 3%22 fill=%22none%22 stroke=%22%23e4ecee%22 stroke-width=%222.2%22 stroke-linecap=%22round%22/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..600&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.css" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.181.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="sea" aria-hidden="true"></canvas>
+  <div class="sea-fallback" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="logo" href="#top" aria-label="Mar de Fondo, ir al inicio">
+      <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M2 20c4 0 4-4 8-4s4 4 8 4 4-4 8-4 4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M2 26c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 4 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/></svg>
+      Mar de Fondo
+    </a>
+    <nav aria-label="Principal">
+      <a href="#tablas">Tablas</a>
+      <a href="#taller">Taller</a>
+    </nav>
+    <a class="btn btn--light" href="#encargo">Encarga tu tabla</a>
+  </header>
+
+  <main id="top">
+    <!-- La historia de una ola, contada sobre el mar en 3D -->
+    <div id="story">
+      <section class="beat beat--hero" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="hero-title" aria-label="Mar de Fondo"><span class="swell" aria-hidden="true">Mar de Fondo</span></h1>
+        <div class="hero-fade">
+        <p class="hero-sub">Tablas de surf dibujadas y laminadas a mano en el Cantábrico, para las olas que llegan de lejos.</p>
+        <div class="hero-actions">
+          <a class="btn btn--light" href="#encargo">Encarga tu tabla</a>
+          <a class="link" href="#tablas">Ver las tablas</a>
+        </div>
+        </div>
+      </section>
+
+      <section class="beat" aria-labelledby="b1">
+        <div class="beat__text">
+          <h2 id="b1">Toda buena ola empieza en una tormenta que nunca verás</h2>
+          <p>A mil kilómetros, en mitad del Atlántico, el viento sopla durante días sobre el agua y la levanta.</p>
+        </div>
+      </section>
+      <section class="beat" aria-labelledby="b2">
+        <div class="beat__text">
+          <h2 id="b2">Después, el mar se ordena</h2>
+          <p>Las olas viajan solas, cada vez más largas y más limpias. En la costa lo llamamos mar de fondo.</p>
+        </div>
+      </section>
+      <section class="beat" aria-labelledby="b3">
+        <div class="beat__text">
+          <h2 id="b3">Llega de noche, mientras el faro sigue girando</h2>
+          <p>Cuando el pueblo duerme, el swell ya está rompiendo en los bajos de la bahía.</p>
+        </div>
+      </section>
+      <section class="beat beat--dawn" aria-labelledby="b4">
+        <div class="beat__text">
+          <h2 id="b4">Y al amanecer, alguien la está esperando</h2>
+          <p>Para esa ola dibujamos cada tabla: a mano, a medida y pensando en cómo surfeas tú.</p>
+        </div>
+      </section>
+
+      <!-- Parte de olas: cambia con el mar -->
+      <aside class="forecast" aria-label="Parte de olas del momento de la historia">
+        <div><span>Periodo</span><b><output id="fPeriod">8</output> s</b></div>
+        <div><span>Altura</span><b><output id="fHeight">3,3</output> m</b></div>
+        <div><span>Dirección</span><b>310° NO</b></div>
+      </aside>
+    </div>
+
+    <!-- Tablas: el surfista las prueba en la ola -->
+    <section class="ride" id="tablas" aria-labelledby="ride-title">
+      <div class="ride__stage">
+        <div class="ride__panel">
+          <h2 id="ride-title" class="ride__title">Pruébalas en la ola</h2>
+          <p class="ride__lead"><span class="only-mouse">Haz clic en el mar</span><span class="only-touch">Toca el mar</span> o elige una tabla: el surfista se la cambia sin salir de la ola.</p>
+          <div class="boards__rack" role="radiogroup" aria-label="Elige la tabla del surfista">
+            <figure class="board" data-len="74" data-board="0" role="radio" aria-checked="true" tabindex="0">
+              <svg viewBox="0 0 120 600" aria-hidden="true">
+                <path class="board__outline" d="M60 10C92 60 100 200 98 330C96 450 84 540 74 586L46 586C36 540 24 450 22 330C20 200 28 60 60 10Z"/>
+                <path class="board__stringer" d="M60 18L60 580"/>
+                <path class="board__fin" d="M60 520l-4 40h8z M38 500l-6 34 8-4z M82 500l6 34-8-4z"/>
+              </svg>
+              <figcaption>
+                <h3>Galerna</h3>
+                <p>Para días grandes y olas con pared.</p>
+                <dl><div><dt>Largo</dt><dd>6′2″</dd></div><div><dt>Ancho</dt><dd>19 ¼″</dd></div><div><dt>Volumen</dt><dd>31,5 l</dd></div></dl>
+              </figcaption>
+            </figure>
+            <figure class="board" data-len="68" data-board="1" role="radio" aria-checked="false" tabindex="-1">
+              <svg viewBox="0 0 120 600" aria-hidden="true">
+                <path class="board__outline" d="M60 40C96 90 106 210 104 330C102 440 94 520 84 575L60 535L36 575C26 520 18 440 16 330C14 210 24 90 60 40Z"/>
+                <path class="board__stringer" d="M60 48L60 532"/>
+                <path class="board__fin" d="M34 500l-6 36 9-5z M86 500l6 36-9-5z"/>
+              </svg>
+              <figcaption>
+                <h3>Orbayu</h3>
+                <p>La de todos los días, rápida en olas pequeñas.</p>
+                <dl><div><dt>Largo</dt><dd>5′8″</dd></div><div><dt>Ancho</dt><dd>21″</dd></div><div><dt>Volumen</dt><dd>34 l</dd></div></dl>
+              </figcaption>
+            </figure>
+            <figure class="board" data-len="110" data-board="2" role="radio" aria-checked="false" tabindex="-1">
+              <svg viewBox="0 0 120 600" aria-hidden="true">
+                <path class="board__outline" d="M60 6C100 14 108 90 108 260C108 430 100 540 84 592L36 592C20 540 12 430 12 260C12 90 20 14 60 6Z"/>
+                <path class="board__stringer" d="M60 14L60 586"/>
+                <path class="board__fin" d="M60 520l-6 52h12z"/>
+              </svg>
+              <figcaption>
+                <h3>Bajamar</h3>
+                <p>Tabla larga para remar pronto y caminar sobre ella.</p>
+                <dl><div><dt>Largo</dt><dd>9′2″</dd></div><div><dt>Ancho</dt><dd>22 ½″</dd></div><div><dt>Volumen</dt><dd>68 l</dd></div></dl>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taller: un proceso real, por eso va numerado -->
+    <section class="land workshop" id="taller" aria-labelledby="ws-title">
+      <div class="wrap">
+        <h2 id="ws-title" class="h-section">Del bloque al agua, en las mismas manos</h2>
+        <ol class="steps">
+          <li><span class="steps__n">1</span><h3>Hablamos</h3><p>Nos cuentas tu peso, tus olas y la tabla que te falta.</p></li>
+          <li><span class="steps__n">2</span><h3>Dibujamos</h3><p>Trazamos la silueta y el perfil a medida, y te los enseñamos antes de cortar.</p></li>
+          <li><span class="steps__n">3</span><h3>Moldeamos</h3><p>Rebajamos el bloque a mano, pasada a pasada, hasta que el canto está donde tiene que estar.</p></li>
+          <li><span class="steps__n">4</span><h3>Laminamos</h3><p>Fibra, resina y lijado. Cuando seca, la tabla es tuya.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="land order" id="encargo" aria-labelledby="order-title">
+      <div class="wrap order__in">
+        <h2 id="order-title" class="order__title">Cuéntanos cómo surfeas</h2>
+        <p>Con eso empezamos a dibujar tu próxima tabla.</p>
+        <a class="btn btn--light btn--big" href="#top">Encarga tu tabla</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a href="../">← Ver más proyectos</a>
+    <p>Mar de Fondo es una marca ficticia. Proyecto de portfolio de diseño web.</p>
+  </footer>
+
+  <div class="hint" aria-hidden="true">
+    <span class="hint__icon hint__icon--touch"><i></i></span>
+    <span class="hint__icon hint__icon--mouse"><i></i></span>
+    <span class="hint__text hint__text--touch">Desliza hacia arriba</span>
+    <span class="hint__text hint__text--mouse">Haz scroll y entra en el mar</span>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="ocean.js?v=7"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>
