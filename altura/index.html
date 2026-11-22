@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Altura · Café de especialidad</title>
+  <meta name="description" content="Vuela por el mundo de Altura: de la finca de montaña a tu taza. Café de especialidad tostado en pequeños lotes." />
+  <meta name="theme-color" content="#F3EADB" />
+  <meta property="og:title" content="Altura · Café de especialidad" />
+  <meta property="og:description" content="De la ladera a tu taza. Haz scroll y vuela por el mundo de Altura." />
+  <meta property="og:image" content="assets/finca.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root, .sw-root {
+      --sw-bg: #F3EADB;
+      --sw-ink: #2E2019;
+      --sw-ink-soft: #6E5A4C;
+      --sw-accent: #A0643C;
+      --sw-font-display: "Fraunces", Georgia, serif;
+      --sw-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    html, body { margin: 0; background: #F3EADB; }
+    .sw-copy__title { font-weight: 600; letter-spacing: -.02em; }
+    .sw-topcta { background: #2E2019; }
+    .altura-foot {
+      position: relative; z-index: 40; background: #2E2019; color: #F3EADB;
+      font-family: "Inter", system-ui, sans-serif; padding: 56px 24px 40px;
+    }
+    .altura-foot__in { max-width: 1100px; margin: 0 auto; display: grid; gap: 28px; grid-template-columns: 1.4fr 1fr 1fr; }
+    .altura-foot h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.8rem; margin: 0 0 8px; }
+    .altura-foot p, .altura-foot li { color: #D8C9B5; font-size: .95rem; line-height: 1.6; margin: 0; }
+    .altura-foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .altura-foot a { color: #F3EADB; text-decoration: none; border-bottom: 1px solid #6E5A4C; }
+    .altura-foot a:hover { border-color: #D9A45B; }
+    .altura-foot h3 { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: #D9A45B; margin: 0 0 12px; font-weight: 600; }
+    .altura-foot__note { max-width: 1100px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #4A372B; font-size: .82rem; color: #A8957F; }
+    @media (max-width: 760px) { .altura-foot__in { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <main id="world" aria-label="Recorrido de Altura, de la finca a la taza"></main>
+
+  <footer class="altura-foot" id="tienda">
+    <div class="altura-foot__in">
+      <div>
+        <h2>Altura</h2>
+        <p>Café de especialidad de montaña, tostado en pequeños lotes y servido con el mismo cuidado con el que se cultiva.</p>
+      </div>
+      <div>
+        <h3>Explora</h3>
+        <ul>
+          <li><a href="../">← Ver más proyectos</a></li>
+          <li><a href="#top">El recorrido</a></li>
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#tienda">Cafetería</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Síguenos</h3>
+        <ul>
+          <li>Newsletter de tostados</li>
+          <li>Instagram</li>
+        </ul>
+      </div>
+    </div>
+    <p class="altura-foot__note">Altura es una marca ficticia. Proyecto de portfolio de diseño web con scroll cinematográfico.</p>
+  </footer>
+
+  <script src="scrub-engine.js?v=3"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'Altura', href: '#top' },
+      cta: { label: 'Comprar café', href: '#tienda' },
+      hint: 'Haz scroll para volar',
+      diveScroll: 1.3,
+      connScroll: 0.9,
+      sections: [
+        {
+          id: 'finca', label: 'La finca',
+          still: 'assets/finca.webp', clip: 'assets/vid/finca.mp4',
+          accent: '#6F7D42', scroll: 1.6, linger: 0.4,
+          eyebrow: 'Café de altura',
+          title: 'Nace en la montaña.',
+          body: 'Cultivamos en laderas volcánicas, donde el grano madura despacio entre niebla y sombra.',
+          tags: ['Cosecha a mano', 'Ladera volcánica', 'Sombra natural'],
+        },
+        {
+          id: 'beneficio', label: 'El secado',
+          still: 'assets/beneficio.webp', clip: 'assets/vid/beneficio.mp4',
+          accent: '#B07C2E',
+          eyebrow: 'Paciencia al sol',
+          title: 'Secado sin prisa.',
+          body: 'Lavamos cada cereza y la secamos al sol en camas elevadas, removiéndola a mano día tras día.',
+          tags: ['Lavado', 'Secado en camas'],
+        },
+        {
+          id: 'tostadero', label: 'El tueste',
+          still: 'assets/tostadero.webp', clip: 'assets/vid/tostadero.mp4',
+          accent: '#A0643C',
+          eyebrow: 'Tueste en pequeños lotes',
+          title: 'El fuego justo.',
+          body: 'Tostamos en lotes pequeños para sacar lo mejor de cada origen: cacao, panela y fruta madura.',
+          tags: ['Lotes pequeños', 'Perfil a medida'],
+        },
+        {
+          id: 'cafeteria', label: 'La cafetería',
+          still: 'assets/cafeteria.webp', clip: 'assets/vid/cafeteria.mp4',
+          accent: '#B9603D',
+          eyebrow: 'De la ladera a la barra',
+          title: 'Servido como merece.',
+          body: 'En nuestra cafetería lo preparamos con el mismo mimo con el que se cultivó.',
+          tags: ['Espresso', 'Filtro', 'Latte art'],
+        },
+        {
+          id: 'taza', label: 'Tu taza',
+          still: 'assets/taza.webp', clip: 'assets/vid/taza.mp4',
+          accent: '#B9603D', scroll: 1.6, linger: 0.45,
+          eyebrow: 'Todo termina aquí',
+          title: 'Tu taza de Altura.',
+          body: 'Café de especialidad recién tostado, del grano a tu casa.',
+          tags: [],
+          cta: { primary: { label: 'Compra tu primer saco', href: '#tienda' },
+                 secondary: { label: 'Volver a volar', href: '#top' } },
+        },
+      ],
+      connectors: [
+        'assets/vid/conn1.mp4',
+        'assets/vid/conn2.mp4',
+        'assets/vid/conn3.mp4',
+        'assets/vid/conn4.mp4',
+      ],
+    });
+  </script>
+</body>
+</html>

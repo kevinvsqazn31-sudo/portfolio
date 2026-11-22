@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Portfolio · Kevin Vásquez · KVA Strategy</title>
+  <meta name="description" content="Webs diseñadas por Kevin Vásquez (KVA Strategy): scroll cinematográfico, 3D e IA. Ábrelas y explóralas." />
+  <meta name="theme-color" content="#0a0a0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio · Kevin Vásquez · KVA Strategy" />
+  <meta property="og:description" content="Webs con scroll de cine, 3D e IA. Ábrelas y explóralas." />
+  <meta property="og:image" content="img/altura.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0a0a0c; --surface: #141418; --surface-2: #1c1c21; --line: #2a2a31;
+      --fg: #f5f5f7; --muted: #a1a1aa; --brand: #f77737; --marker: #fcaf45;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--ink); color: var(--fg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(900px 520px at 85% -10%, rgba(247,119,55,.18), transparent 60%),
+                  radial-gradient(700px 420px at -10% 30%, rgba(131,58,180,.10), transparent 60%);
+    }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    header.top { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+    header.top img { height: 26px; width: auto; display: block; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600;
+      font-size: .95rem; padding: 12px 22px; border-radius: 999px; transition: transform .2s, background .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible, .card a:focus-visible { outline: 2px solid var(--marker); outline-offset: 3px; }
+    .btn--brand { background: var(--brand); color: #111; }
+    .btn--brand:hover { background: #ff8a4f; }
+    .btn--ghost { border: 1px solid var(--line); color: var(--fg); }
+    .btn--ghost:hover { border-color: #4a4a55; background: var(--surface); }
+
+    .hero { padding: 72px 0 56px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 10px; font-size: .75rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px;
+    }
+    .pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: .98; letter-spacing: -.035em;
+      font-weight: 800; margin: 24px 0 0; max-width: 14ch;
+    }
+    h1 mark { background: var(--marker); color: #111; padding: 0 .12em; border-radius: .08em; }
+    .lead { color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 52ch; margin: 24px 0 0; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; padding-bottom: 96px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      display: flex; flex-direction: column; transition: border-color .25s, transform .25s;
+    }
+    .card:hover { border-color: #3a3a42; transform: translateY(-3px); }
+    .card__media { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-2); }
+    .card__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+    .card:hover .card__media img { transform: scale(1.035); }
+    .badge {
+      position: absolute; top: 14px; left: 14px; font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+      padding: 6px 12px; border-radius: 999px; background: rgba(10,10,12,.78); backdrop-filter: blur(8px); color: var(--fg);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .badge--live::before { content: "● "; color: #4ade80; }
+    .card__body { padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+    .card h2 { font-size: 1.45rem; letter-spacing: -.02em; margin: 0; }
+    .card p { margin: 0; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+    .tags li { font-size: .78rem; color: #d4d4d8; background: var(--surface-2); border: 1px solid var(--line); padding: 5px 11px; border-radius: 999px; }
+    .card__foot { margin-top: auto; padding-top: 6px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .hintline { font-size: .8rem; color: #71717a; }
+
+    .cta {
+      border: 1px solid var(--line); border-radius: 26px; padding: clamp(32px, 5vw, 56px);
+      background: linear-gradient(135deg, rgba(247,119,55,.14), rgba(20,20,24,.9) 55%);
+      display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-bottom: 64px;
+    }
+    .cta h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); letter-spacing: -.03em; line-height: 1.05; margin: 0; max-width: 18ch; }
+    .cta p { color: var(--muted); margin: 10px 0 0; }
+    .cta__btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    footer.bottom { border-top: 1px solid var(--line); padding: 28px 0 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .85rem; color: #71717a; }
+    footer.bottom nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer.bottom a { color: #a1a1aa; text-decoration: none; }
+    footer.bottom a:hover { color: var(--fg); }
+
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 40px 0 40px; }
+      header.top .btn { padding: 10px 16px; font-size: .88rem; }
+    }
+    @media (max-width: 420px) { .wrap { padding: 0 16px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a href="https://kevinvasquezav.com/" aria-label="KVA Strategy, ir a la web principal">
+        <img src="img/kva-logo-white.webp" alt="KVA" width="400" height="146" />
+      </a>
+      <a class="btn btn--brand" href="https://kevinvasquezav.com/" target="_blank" rel="noopener">Pide tu plan</a>
+    </header>
+
+    <section class="hero">
+      <span class="pill">Portfolio · Kevin Vásquez</span>
+      <h1>Webs que se <mark>recuerdan</mark>.</h1>
+      <p class="lead">Estos son los proyectos web que he diseñado. Abre cualquiera y explórala tú mismo: haz scroll, pulsa y mira cómo se mueve.</p>
+    </section>
+
+    <section class="grid" aria-label="Proyectos">
+      <article class="card">
+        <a class="card__media" href="altura/" aria-label="Abrir la web de Altura">
+          <img src="img/altura.webp" alt="Finca de café en miniatura de arcilla, primera escena de la web de Altura" width="1200" height="797" loading="eager" />
+          <span class="badge">Proyecto conceptual</span>
+        </a>
+        <div class="card__body">
+          <h2>Altura · Café de especialidad</h2>
+          <p>Web con scroll de cine: al bajar, la cámara vuela de la finca a la taza en un solo plano, sin cortes. Cada escena se generó con IA y se encadenó fotograma a fotograma.</p>
+          <ul class="tags"><li>Scroll cinematográfico</li><li>Escenas con IA</li><li>Vídeo encadenado</li></ul>
+          <div class="card__foot">
+            <a class="btn btn--ghost" href="altura/">Ver la web →</a>
+            <span class="hintline">Mejor en ordenador · pesa unos 55 MB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="https://kevinvasquezav.com/" target="_blank" rel="noopener" aria-label="Abrir la web de KVA Strategy en una pestaña nueva">
+          <img src="img/kva.webp" alt="Portada de la web de KVA Strategy: «Posiciono marcas en RRSS e IA»" width="1200" height="750" loading="lazy" />
+          <span class="badge badge--live">Web publicada</span>
+        </a>
+        <div class="card__body">
+          <h2>KVA Strategy</h2>
+          <p>Mi propia web: 3D que cambia en cada sección, un asistente de IA que responde a los visitantes y todo lo legal en orden para captar clientes.</p>
+          <ul class="tags"><li>3D al hacer scroll</li><li>Asistente de IA</li><li>SEO y GEO</li></ul>
+          <div class="card__foot">
+            <a class="btn btn--ghost" href="https://kevinvasquezav.com/" target="_blank" rel="noopener">Ver la web ↗</a>
+            <span class="hintline">kevinvasquezav.com</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>¿Quieres una web así para tu negocio?</h2>
+        <p>Cuéntame qué haces y te preparo una propuesta.</p>
+      </div>
+      <div class="cta__btns">
+        <a class="btn btn--brand" href="https://www.instagram.com/kevinvasquezav/" target="_blank" rel="noopener">Escríbeme por Instagram</a>
+        <a class="btn btn--ghost" href="https://kevinvasquezav.com/" target="_blank" rel="noopener">Pide tu plan</a>
+      </div>
+    </section>
+
+    <footer class="bottom">
+      <span>© 2026 Kevin Vásquez · KVA Strategy</span>
+      <nav aria-label="Legal">
+        <a href="https://kevinvasquezav.com/aviso-legal" target="_blank" rel="noopener">Aviso legal</a>
+        <a href="https://kevinvasquezav.com/privacidad" target="_blank" rel="noopener">Privacidad</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
