@@ -60,6 +60,7 @@
     .lead { color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 52ch; margin: 24px 0 0; }
 
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; padding-bottom: 96px; }
+    @media (min-width: 1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     .card {
       background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
       display: flex; flex-direction: column; transition: border-color .25s, transform .25s;
@@ -132,6 +133,22 @@
           <div class="card__foot">
             <a class="btn btn--ghost" href="altura/">Ver la web →</a>
             <span class="hintline">Mejor en ordenador · pesa unos 55 MB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="asfalto/" aria-label="Abrir la web de ASFALTO">
+          <img src="img/asfalto.webp" alt="Modelo agachado en el asfalto mojado de noche, portada de la web de ASFALTO" width="1200" height="750" loading="lazy" />
+          <span class="badge">Proyecto conceptual</span>
+        </a>
+        <div class="card__body">
+          <h2>ASFALTO · Streetwear</h2>
+          <p>Tienda de ropa con estética de revista: lookbook en scroll horizontal, tipografía gigante que entra letra a letra, cursor propio y botones magnéticos.</p>
+          <ul class="tags"><li>Pasarela horizontal</li><li>Tipografía animada</li><li>Fotografía con IA</li></ul>
+          <div class="card__foot">
+            <a class="btn btn--ghost" href="asfalto/">Ver la web →</a>
+            <span class="hintline">Ordenador y móvil</span>
           </div>
         </div>
       </article>

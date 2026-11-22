@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ASFALTO · Streetwear · Drop 01</title>
+  <meta name="description" content="ASFALTO, streetwear de algodón pesado y cortes amplios. Descubre el Drop 01: lookbook, prendas y manifiesto." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="ASFALTO · Drop 01" />
+  <meta property="og:description" content="Ropa pesada para calles ligeras." />
+  <meta property="og:image" content="img/hero.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.css" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script>
+    // Movimiento: activo para todos (el scroll lo controla quien visita). ?motion=0 o el botón lo pausan.
+    (function () {
+      var off = /[?&]motion=0\b/.test(location.search);
+      try { if (localStorage.getItem('asf_motion') === 'off') off = true; } catch (e) {}
+      if (off) document.documentElement.dataset.motion = 'off';
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
+
+  <!-- Precarga -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__count"><span id="count">000</span></div>
+    <div class="loader__word"><span>A</span><span>S</span><span>F</span><span>A</span><span>L</span><span>T</span><span>O</span></div>
+  </div>
+
+  <header class="nav">
+    <a class="nav__logo" href="#top" aria-label="ASFALTO, ir al inicio">ASFALTO</a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#drop">Drop 01</a>
+      <a href="#manifiesto">Manifiesto</a>
+    </nav>
+    <div class="nav__right">
+      <button class="nav__motion" type="button" aria-pressed="false" id="motionToggle">Movimiento <b>ON</b></button>
+      <a class="btn btn--accent nav__cta" href="#drop" data-magnetic>Comprar</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1 · Portada -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media" data-cursor>
+        <img src="img/hero.webp" alt="Modelo agachado sobre el asfalto mojado de noche con sudadera negra oversize" width="1920" height="1086" fetchpriority="high" />
+      </div>
+      <div class="hero__meta mono">
+        <span>Drop 01 · Invierno</span>
+        <span>Algodón pesado · Oversize</span>
+      </div>
+      <h1 class="hero__title" id="hero-title" aria-label="ASFALTO">
+        <span class="split" aria-hidden="true">ASFALTO</span>
+      </h1>
+      <p class="hero__tag">Ropa pesada<br />para calles ligeras.</p>
+    </section>
+
+    <!-- 2 · Cinta -->
+    <div class="band" aria-hidden="true">
+      <div class="band__track">
+        <span>Algodón pesado ✶ Cortes amplios ✶ Negro de verdad ✶ Drop 01 ✶ Hecho para la calle ✶&nbsp;</span>
+        <span>Algodón pesado ✶ Cortes amplios ✶ Negro de verdad ✶ Drop 01 ✶ Hecho para la calle ✶&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- 3 · Manifiesto -->
+    <section class="manifesto" id="manifiesto" aria-labelledby="manifesto-label">
+      <p class="label mono" id="manifesto-label">(01) Manifiesto</p>
+      <p class="manifesto__text" data-words>
+        No hacemos ropa para pasar desapercibido. Hacemos prendas pesadas, cortes amplios y negro de verdad. Para la calle, para el ruido, para ti.
+      </p>
+      <figure class="manifesto__detail" data-cursor>
+        <img src="img/detail.webp" alt="Detalle macro del algodón cepillado de una sudadera negra con doble costura" width="900" height="1125" loading="lazy" />
+        <figcaption class="mono">Doble costura · Puño de canalé</figcaption>
+      </figure>
+    </section>
+
+    <!-- 4 · Lookbook horizontal -->
+    <section class="look" id="lookbook" aria-labelledby="look-title">
+      <div class="look__pin">
+        <div class="look__head">
+          <p class="label mono">(02) Lookbook</p>
+          <h2 class="look__title" id="look-title">Drop 01</h2>
+          <p class="look__hint mono" aria-hidden="true">Sigue deslizando <span>→</span></p>
+        </div>
+        <div class="look__track">
+          <figure class="look__item" data-cursor><div class="look__img"><img src="img/look1.webp" alt="Modelo con sudadera gris y capucha apoyado en un pilar de hormigón" width="1000" height="1506" loading="lazy" /></div><figcaption><span class="mono">01 / 05</span> Subterráneo</figcaption></figure>
+          <figure class="look__item" data-cursor><div class="look__img"><img src="img/look2.webp" alt="Dos modelos con camisetas blancas oversize en una azotea al atardecer" width="1000" height="1506" loading="lazy" /></div><figcaption><span class="mono">02 / 05</span> Azotea</figcaption></figure>
+          <figure class="look__item" data-cursor><div class="look__img"><img src="img/look3.webp" alt="Modelo patinando por una rampa de hormigón con plumífero negro" width="1000" height="1506" loading="lazy" /></div><figcaption><span class="mono">03 / 05</span> Rampa</figcaption></figure>
+          <figure class="look__item" data-cursor><div class="look__img"><img src="img/look4.webp" alt="Retrato de modelo con gorra negra y la cara a medias en sombra" width="1000" height="1506" loading="lazy" /></div><figcaption><span class="mono">04 / 05</span> Sombra</figcaption></figure>
+          <figure class="look__item" data-cursor><div class="look__img"><img src="img/look5.webp" alt="Modelo sentado en las escaleras metálicas de un parking con chaqueta vaquera" width="1000" height="1506" loading="lazy" /></div><figcaption><span class="mono">05 / 05</span> Parking</figcaption></figure>
+        </div>
+        <div class="look__progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- 5 · Prendas -->
+    <section class="drop" id="drop" aria-labelledby="drop-title">
+      <div class="drop__head">
+        <p class="label mono">(03) Las prendas</p>
+        <h2 class="drop__title" id="drop-title" data-lines>Tres básicos<br />que pesan.</h2>
+      </div>
+      <div class="drop__grid">
+        <article class="prod" data-cursor>
+          <div class="prod__img"><img src="img/prod_hoodie.webp" alt="Sudadera negra oversize de algodón pesado" width="900" height="900" loading="lazy" /></div>
+          <div class="prod__info"><h3>Sudadera Pantano</h3><p class="mono">Negro · S M L XL</p></div>
+        </article>
+        <article class="prod" data-cursor>
+          <div class="prod__img"><img src="img/prod_cargo.webp" alt="Pantalón cargo ancho gris" width="900" height="900" loading="lazy" /></div>
+          <div class="prod__info"><h3>Cargo Bordillo</h3><p class="mono">Gris · S M L XL</p></div>
+        </article>
+        <article class="prod" data-cursor>
+          <div class="prod__img"><img src="img/prod_cap.webp" alt="Gorra negra lavada de seis paneles" width="900" height="900" loading="lazy" /></div>
+          <div class="prod__info"><h3>Gorra Farola</h3><p class="mono">Negro lavado · Talla única</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6 · Cierre -->
+    <section class="outro" aria-labelledby="outro-title">
+      <h2 class="outro__title" id="outro-title"><span>Sal a</span><span class="outro__accent">la calle.</span></h2>
+      <a class="btn btn--accent btn--big" href="#drop" data-magnetic>Comprar el Drop 01</a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a class="foot__back" href="../">← Ver más proyectos</a>
+    <p class="mono">ASFALTO es una marca ficticia. Proyecto de portfolio de diseño web.</p>
+  </footer>
+
+  <!-- Aviso de deslizar -->
+  <div class="hint" aria-hidden="true">
+    <span class="hint__icon hint__icon--touch"><i></i></span>
+    <span class="hint__icon hint__icon--mouse"><i></i></span>
+    <span class="hint__text hint__text--touch">Desliza hacia arriba</span>
+    <span class="hint__text hint__text--mouse">Haz scroll</span>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js?v=2"></script>
+</body>
+</html>
