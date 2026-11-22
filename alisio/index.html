@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Alisio · Viajes a medida</title>
+  <meta name="description" content="Alisio diseña viajes a medida: te escuchamos, trazamos la ruta y te acompañamos. Haz scroll y vuela con nosotros hasta tu próxima isla." />
+  <meta name="theme-color" content="#0f1b2d" />
+  <meta property="og:title" content="Alisio · Viajes a medida" />
+  <meta property="og:description" content="Vuela con nosotros hasta tu próxima isla." />
+  <meta property="og:image" content="img/og.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__logo" href="#top" aria-label="Alisio, ir al inicio">Alisio<span>·</span></a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#destinos">Destinos</a>
+      <a href="#como">Cómo trabajamos</a>
+    </nav>
+    <a class="btn btn--coral" href="#contacto">Diseña tu viaje</a>
+  </header>
+
+  <main id="top">
+    <!-- Vuelo 3D: el scroll mueve la avioneta -->
+    <section class="flight" id="flight" aria-label="Vuelo desde las nubes hasta una isla tropical">
+      <div class="flight__stage">
+        <video id="flightVideo" class="flight__video" data-src="video/vuelo.mp4" poster="img/vuelo-poster.webp" muted playsinline preload="auto" aria-label="Una avioneta sale de las nubes al amanecer, vuela sobre un mar de nubes y desciende hacia una isla tropical"></video>
+
+        <!-- Panel de instrumentos -->
+        <div class="hud mono" aria-hidden="true">
+          <div><span>Altitud</span><b id="hudAlt">2.560 m</b></div>
+          <div><span>Rumbo</span><b id="hudHdg">214°</b></div>
+          <div><span>Velocidad</span><b id="hudSpd">210 km/h</b></div>
+        </div>
+        <div class="route" aria-hidden="true">
+          <span class="route__label mono">Salida</span>
+          <div class="route__line"><i id="routeDot"></i></div>
+          <span class="route__label mono">Isla</span>
+        </div>
+
+        <!-- Textos del vuelo -->
+        <div class="panel panel--hero" data-from="0" data-to="0.13">
+          <p class="eyebrow mono">Agencia de viajes a medida</p>
+          <h1>Alisio</h1>
+          <p class="lead">Tú eliges el destino. <em>Nosotros, cada detalle del camino.</em></p>
+        </div>
+        <div class="panel panel--left" data-from="0.17" data-to="0.33">
+          <p class="eyebrow mono">01 · Te escuchamos</p>
+          <h2>Un viaje empieza <em>con una conversación.</em></h2>
+          <p>Hablamos sin prisa de cómo te gusta viajar: el ritmo, los sitios, lo que te emociona y lo que no quieres repetir.</p>
+        </div>
+        <div class="panel panel--right" data-from="0.37" data-to="0.52">
+          <p class="eyebrow mono">02 · Trazamos la ruta</p>
+          <h2>Nada de paquetes <em>cerrados.</em></h2>
+          <p>Vuelos, alojamientos y experiencias elegidos uno a uno para ti, encajados como piezas del mismo viaje.</p>
+        </div>
+        <div class="panel panel--left" data-from="0.56" data-to="0.72">
+          <p class="eyebrow mono">03 · Volamos contigo</p>
+          <h2>Todo organizado, <em>tú solo disfrutas.</em></h2>
+          <p>Llevas el plan completo en el móvil y una persona de contacto durante todo el viaje.</p>
+        </div>
+        <div class="panel panel--center" data-from="0.86" data-to="1">
+          <p class="eyebrow mono">Destino: tu próxima isla</p>
+          <h2 class="big">Bienvenido <em>al paraíso.</em></h2>
+          <a class="btn btn--coral btn--big" href="#destinos">Descubre a dónde podemos llevarte</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinos -->
+    <section class="dest" id="destinos" aria-labelledby="dest-title">
+      <div class="wrap">
+        <p class="eyebrow mono">Inspiración</p>
+        <h2 id="dest-title" class="title">Algunos viajes que <em>podríamos diseñar.</em></h2>
+        <div class="dest__grid">
+          <article class="card">
+            <img src="img/kioto.webp" alt="Camino de piedra bajo puertas torii rojas en un bosque de Kioto al amanecer" width="900" height="1200" loading="lazy" />
+            <div class="card__txt"><p class="mono">Japón</p><h3>Kioto entre templos</h3></div>
+          </article>
+          <article class="card">
+            <img src="img/islandia.webp" alt="Playa de arena negra en Islandia con farallones de basalto y una cabaña" width="900" height="1200" loading="lazy" />
+            <div class="card__txt"><p class="mono">Islandia</p><h3>Costa de arena negra</h3></div>
+          </article>
+          <article class="card">
+            <img src="img/marruecos.webp" alt="Campamento de jaimas blancas entre dunas doradas del Sáhara al atardecer" width="900" height="1200" loading="lazy" />
+            <div class="card__txt"><p class="mono">Marruecos</p><h3>Una noche en el Sáhara</h3></div>
+          </article>
+          <article class="card">
+            <img src="img/patagonia.webp" alt="Lago glaciar turquesa con picos de granito en la Patagonia al amanecer" width="900" height="1200" loading="lazy" />
+            <div class="card__txt"><p class="mono">Patagonia</p><h3>Lagos al fin del mundo</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section class="how" id="como" aria-labelledby="how-title">
+      <div class="wrap">
+        <p class="eyebrow mono">Cómo trabajamos</p>
+        <h2 id="how-title" class="title">Tres pasos <em>hasta la puerta de embarque.</em></h2>
+        <ol class="steps">
+          <li><span class="mono">01</span><h3>Conversación</h3><p>Nos cuentas qué viaje imaginas, con quién y cuándo.</p></li>
+          <li><span class="mono">02</span><h3>Propuesta</h3><p>Te enviamos una ruta a tu medida para ajustarla juntos.</p></li>
+          <li><span class="mono">03</span><h3>Viaje</h3><p>Lo reservamos todo y te acompañamos de principio a fin.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="cta" id="contacto" aria-labelledby="cta-title">
+      <div class="wrap">
+        <h2 id="cta-title" class="cta__title">¿A dónde <em>volamos?</em></h2>
+        <p>Cuéntanos tu idea y empezamos a diseñar tu viaje.</p>
+        <a class="btn btn--coral btn--big" href="#top">Diseña tu viaje</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a href="../">← Ver más proyectos</a>
+    <p class="mono">Alisio es una agencia ficticia. Proyecto de portfolio de diseño web.</p>
+  </footer>
+
+  <!-- Aviso de deslizar -->
+  <div class="hint" aria-hidden="true">
+    <span class="hint__icon hint__icon--touch"><i></i></span>
+    <span class="hint__icon hint__icon--mouse"><i></i></span>
+    <span class="hint__text hint__text--touch">Desliza hacia arriba</span>
+    <span class="hint__text hint__text--mouse">Haz scroll para despegar</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="ui.js?v=1"></script>
+  <script src="flight.js?v=4"></script>
+</body>
+</html>
